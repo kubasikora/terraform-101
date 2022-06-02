@@ -5,6 +5,13 @@ terraform {
       version = "4.11.0"
     }
   }
+
+  backend "s3" {
+    bucket = "techday-terraform"
+    key    = "gitops-server/terraform.tfstate"
+    region = "eu-central-1"
+    shared_credentials_file = "../config/.credentials"
+  }
 }
 
 provider "aws" {
@@ -17,7 +24,7 @@ resource "aws_instance" "gitops" {
   instance_type     = "t2.micro"
   availability_zone = "eu-central-1a"
   key_name          = "TechDay"
-  security_groups = [ "allow_web_traffic" ]
+  security_groups = [ "gitops_server" ]
 
   tags = {
     Name = "TechDay gitops server"

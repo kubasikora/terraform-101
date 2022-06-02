@@ -1,5 +1,5 @@
 resource "aws_security_group" "allow_web" {
-  name        = "allow_web_traffic"
+  name        = "gitops_server"
   description = "Allow ports 22, 80 and 443"
 
   ingress {
