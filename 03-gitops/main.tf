@@ -27,7 +27,7 @@ resource "aws_instance" "gitops" {
   security_groups = [ "gitops_server" ]
 
   tags = {
-    Name = "TechDay gitops server v2"
+    Name = "TechDay gitops server"
   }
 }
 
